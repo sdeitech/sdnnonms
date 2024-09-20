@@ -1,54 +1,75 @@
 const product = require('../model/productM');
+const mongoose=require('mongoose')
 
 exports.getProduct = async (req, res) => {
     try {
         const findProduct = await product.find();
-        res.status(200).json({ message: 'data retrieve', findProduct });
+        res.json(findProduct );
 
     } catch (error) {
-        res.status(404).json("data not found");
+        res.status(500).json("data not found");
     }
 }
 
 exports.createProduct = async (req, res) => {
+    console.log(req.body);
+    
     try {
         const newProduct = new product(req.body);
         await newProduct.save();
-        res.status(201).json({ message: 'data posted', data: { newProduct } })
+        res.status(201).json(newProduct )
 
     } catch (error) {
+        // console.log(error);
+        
         res.status(400).json('data is not entered');
     }
 }
 
-exports.getproductByID = async (req, res) => {
-    try {
-        const findProductbyId = await product.findById(req.params._id);
-
-        res.status(200).json({ message: 'data found by id', data: { findProductbyId } })
-    } catch (error) {
-        res.status(404).json('data not found by id');
-    }
-}
 
 exports.updateProduct = async (req, res) => {
+    const {
+        productName,quantity,description, manufacturer,expiry
+    }=req.body;
     try {
-        const upProduct = await product.findByIdAndUpdate(req.params._id);
-        const saveNewData = await upProduct.save();
-        res.status(200).json({ message: 'data updated by id', data: { saveNewData } })
+        const upProduct = await product.findByIdAndUpdate({_id:req.params.id},req.body,{new:true});
+        if(!upProduct)
+        {
+            res.status(404).json({message:"id is not there in the list"});
+        }
+        
+       res.json(upProduct);
     } catch (error) {
-        res.status(404).json(error);
+        res.status(400).json(error);
     }
 }
 
 exports.deleteProductByID = async (req, res) => {
     try {
-        const productDel = await product.findByIdAndDelete(req.params._id);
+        const productDel = await product.findByIdAndDelete(req.params.id);
+        if(!productDel)
+        {
+            res.status(404).json({message:"product not found"})
+        }
 
-        res.status(410).json({ message: 'data delete by id', data: productDel.req.params.id });
+        res.json({ message: 'product deleted !'});
 
     } catch (error) {
-        res.status(400).json(error);
+        res.status(500).json({message:"error"});
+    }
+}
 
+exports.getProductById= async (req, res) => {
+    try {
+        const findProduct = await product.findOne({_id:req.params.id});
+        if(!findProduct)
+        {
+            res.status(404).json({message:"product is not there in the list"})
+        }
+        return res.json(findProduct );
+
+    } catch (error) {
+        
+        res.status(500).json("data not found");
     }
 }

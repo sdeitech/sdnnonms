@@ -2,137 +2,179 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 
-function Productdetails() {
-    const [data, setData] = useState([]);
-    const [productData, setproductData] = useState({
+function ProductDetails() {
+    const [productData, setProductData] = useState({
         productName: '',
-        price: '',
-        description: ''
+        quantity: '',
+        description: '',
+        manufacturer: '',
+        expiry: ''
     });
+    
+    const [data, setData] = useState([]);
+    const [editMode, setEditMode] = useState(false);
+    const [currentProductId, setCurrentProductId] = useState(null);
 
-    // const updateProduct = async () => {
-    //     const response = await axios.put("http://localhost:4000/product/")
-    // }
-    const deleteProduct = async (id) => {
+    const fetchProducts = async () => {
         try {
-            const response = await axios.delete(`http://localhost:4000/product/${id}`);
-            setData(data.filter((data) => data.id !== id));
-            console.log(response,"hfjfgajhf");
+            const result = await axios.get("http://localhost:4000/product");
+            setData(result.data);
+        } catch (error) {
+            console.error("Error fetching products", error);
         }
-        catch (error) {
-            console.log("data is not deleted");
-        }
-
-    }
-
-    const getProduct = async () => {
-
-        const result = await axios.get("http://localhost:4000/product/", {
-            validateStatus: function (status) {
-                // if this function returns true, exception is not thrown, so
-                // in simplest case just return true to handle status checks externally.
-                return true;
-            }
-        });
-        setData(result?.data?.findProduct);
     };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        setProductData({ ...productData, [name]: value });
+    };
 
-        setproductData({ ...productData, [name]: value })
-    }
-
-    const postProduct = async (e) => {
-        try {
-            e.preventDefault()
-            const res = await fetch('http://localhost:4000/product', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(productData)
-
-            })
-            .then((response) => response.json())
-            setData(prevData => [res.data, ...data]);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (editMode) {
+            await updateProduct(currentProductId);
+        } else {
+            await createProduct();
         }
-        catch (error) {
-            console.log("product is not posted");
+        resetForm();
+    };
+
+    const createProduct = async () => {
+        try {
+            const response = await axios.post('http://localhost:4000/product', productData);
+            setData(prevData => [response.data, ...prevData]);
+        } catch (error) {
+            console.error("Error creating product", error);
         }
     };
 
+    const updateProduct = async (id) => {
+        try {
+            const response = await axios.put(`http://localhost:4000/product/${id}`, productData);
+            setData(data.map(item => (item._id === id ? response.data : item)));
+            setEditMode(false);
+        } catch (error) {
+            console.error("Error updating product", error);
+        }
+    };
+
+    const deleteProduct = async (id) => {
+        try {
+            await axios.delete(`http://localhost:4000/product/${id}`);
+            setData(data.filter(item => item._id !== id));
+        } catch (error) {
+            console.error("Error deleting product", error);
+        }
+    };
+
+    const editProduct = (product) => {
+        setProductData(product);
+        setEditMode(true);
+        setCurrentProductId(product._id);
+    };
+
+    const resetForm = () => {
+        setProductData({
+            productName: '',
+            quantity: '',
+            description: '',
+            manufacturer: '',
+            expiry: ''
+        });
+        setEditMode(false);
+        setCurrentProductId(null);
+    };
+
     useEffect(() => {
-        getProduct();
+        fetchProducts();
     }, []);
 
     return (
         <div>
-            <form className="form-container" onSubmit={postProduct}>
+            <form className="form-container" onSubmit={handleSubmit}>
                 <div className='form-group'>
-                    <label>productName::</label>
+                    <label>Product Name:</label>
                     <input
                         type='text'
                         value={productData.productName}
-                        name="productName"
-                        placeholder='enter the product name'
+                        name='productName'
+                        placeholder='Enter product name'
                         onChange={handleChange}
                     />
                 </div>
                 <div className='form-group'>
-                    <label> price::</label>
+                    <label>Quantity:</label>
                     <input
-
                         type='number'
-                        value={productData.price}
-                        name='price'
-                        placeholder='price of the product'
+                        value={productData.quantity}
+                        name='quantity'
+                        placeholder='Quantity of the product'
                         onChange={handleChange}
                     />
                 </div>
                 <div className='form-group'>
-                    <label> description::</label>
-                    <textarea
+                    <label>Description:</label>
+                    <input
                         type="text"
                         value={productData.description}
                         name='description'
-                        placeholder='description of the product'
+                        placeholder='Description of the product'
                         onChange={handleChange}
                     />
                 </div>
-                <button type='submit'>Submit</button>
-
+                <div className='form-group'>
+                    <label>Manufacturer:</label>
+                    <input
+                        type="text"
+                        value={productData.manufacturer}
+                        name='manufacturer'
+                        placeholder='Manufacturer of the product'
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className='form-group'>
+                    <label>Expiry:</label>
+                    <input
+                        type="date"
+                        value={productData.expiry}
+                        name='expiry'
+                        placeholder='Expiry of the product'
+                        onChange={handleChange}
+                    />
+                </div>
+                <button type='submit'>{editMode ? 'Update' : 'Submit'}</button>
+                {editMode && <button type='button' onClick={resetForm}>Cancel</button>}
             </form>
 
             <table className="table table-success table-striped">
                 <thead>
                     <tr>
-                        <th> PRODUCT NAME</th>
-                        <th> PRICE</th>
-                        <th> DESCRIPTION </th>
-                        <th> ACTION </th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Description</th>
+                        <th>Manufacturer</th>
+                        <th>Expiry</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {data && data.map((ele, index) => {
-                        return (
-
-                            <tr key={ele._id}>
-                                <td>{ele.productName}</td>
-                                <td>{ele.price}</td>
-                                <td>{ele.description}</td>
-                                <td>
-                                    <button onClick={() => deleteProduct(ele._id)}> DELETE</button>
-                                    <button > UPDATE </button>
-                                </td>
-                            </tr>)
-
-                    })}
+                    {data.map((ele) => (
+                        <tr key={ele._id}>
+                            <td>{ele.productName}</td>
+                            <td>{ele.quantity}</td>
+                            <td>{ele.description}</td>
+                            <td>{ele.manufacturer}</td>
+                            <td>{ele.expiry}</td>
+                            <td>
+                                <button onClick={() => deleteProduct(ele._id)}>Delete</button>
+                                <button onClick={() => editProduct(ele)}>Edit</button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
-
             </table>
         </div>
     );
 }
-export default Productdetails;
+
+export default ProductDetails;
