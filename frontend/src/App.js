@@ -1,8 +1,8 @@
-import FetchProduct from './component/FetchProduct'
+import Productdata from './component/Productdata'
 function App() {
   return (
     <div>
-      <FetchProduct/>
+      <Productdata/>
     </div>
   );
 }

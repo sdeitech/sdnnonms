@@ -1,7 +1,7 @@
 
 const Product = require('../model/productmodel');
 
-
+//To post the data
 const  createProd = async (req, res) => {
     console.log(req.body);
 
@@ -18,15 +18,20 @@ const  createProd = async (req, res) => {
     }
 
 };
+
+//To get the data 
 const  getprod = async (req, res) => {
-    try {
-        const product = await Product.find();
-        res.json(product);
+        console.log('getting');
+    try { 
+    const products = await Product.find();
+    res.json(products);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
 
+
+//To put/update the data
 
 const updateprod = async (req, res) => {
     try {
@@ -40,6 +45,7 @@ const updateprod = async (req, res) => {
     }
 }
 
+//To delete the data 
 const deleteprod = async (req, res) => {
     try {
         const delprod = await Product.findByIdAndDelete(req.params.id);
