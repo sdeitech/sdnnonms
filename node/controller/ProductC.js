@@ -3,7 +3,7 @@ const product = require('../model/productM');
 exports.getProduct = async (req, res) => {
     try {
         const findProduct = await product.find();
-        res.status(302).json({ message: 'data retrieve', findProduct });
+        res.status(200).json({ message: 'data retrieve', findProduct });
 
     } catch (error) {
         res.status(404).json("data not found");
@@ -25,7 +25,7 @@ exports.getproductByID = async (req, res) => {
     try {
         const findProductbyId = await product.findById(req.params._id);
 
-        res.status(302).json({ message: 'data found by id', data: { findProductbyId } })
+        res.status(200).json({ message: 'data found by id', data: { findProductbyId } })
     } catch (error) {
         res.status(404).json('data not found by id');
     }
@@ -35,7 +35,7 @@ exports.updateProduct = async (req, res) => {
     try {
         const upProduct = await product.findByIdAndUpdate(req.params._id);
         const saveNewData = await upProduct.save();
-        res.status(302).json({ message: 'data updated by id', data: { saveNewData } })
+        res.status(200).json({ message: 'data updated by id', data: { saveNewData } })
     } catch (error) {
         res.status(404).json(error);
     }
