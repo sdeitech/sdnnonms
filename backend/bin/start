@@ -1,0 +1,19 @@
+require("@babel/polyfill")
+require("@babel/register")
+require("dotenv/config")
+require("../config/db.js")()
+
+const app = require("../app.js").default
+const http = require("http")
+// const config = require("../config/config.js")
+// const configuration = config.config[process.env.NODE_ENV]
+// console.log(configuration)
+const port = 3002
+
+
+const server = http.createServer(app)
+server.listen(port)
+
+server.on("listening", () => {
+    console.log(`Server is listening at http://localhost:${port}`)
+})
