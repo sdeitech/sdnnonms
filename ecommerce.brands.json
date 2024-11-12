@@ -1,0 +1,216 @@
+[{
+  "_id": {
+    "$oid": "667c1823184809103e754c1f"
+  },
+  "value": "Apple",
+  "label": "Apple",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c20"
+  },
+  "value": "Samsung",
+  "label": "Samsung",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c21"
+  },
+  "value": "OPPO",
+  "label": "OPPO",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c22"
+  },
+  "value": "Huawei",
+  "label": "Huawei",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c23"
+  },
+  "value": "Microsoft Surface",
+  "label": "Microsoft Surface",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c24"
+  },
+  "value": "Infinix",
+  "label": "Infinix",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c25"
+  },
+  "value": "HP Pavilion",
+  "label": "HP Pavilion",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c26"
+  },
+  "value": "Impression of Acqua Di Gio",
+  "label": "Impression of Acqua Di Gio",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c27"
+  },
+  "value": "Royal_Mirage",
+  "label": "Royal_Mirage",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c28"
+  },
+  "value": "Fog Scent Xpressio",
+  "label": "Fog Scent Xpressio",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c29"
+  },
+  "value": "Al Munakh",
+  "label": "Al Munakh",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c2a"
+  },
+  "value": "Lord - Al-Rehab",
+  "label": "Lord  AlRehab",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c2b"
+  },
+  "value": "L'Oreal Paris",
+  "label": "L'Oreal Paris",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c2c"
+  },
+  "value": "Hemani Tea",
+  "label": "Hemani Tea",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c2d"
+  },
+  "value": "Dermive",
+  "label": "Dermive",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c2e"
+  },
+  "value": "ROREC White Rice",
+  "label": "ROREC White Rice",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c2f"
+  },
+  "value": "Fair & Clear",
+  "label": "Fair & Clear",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c30"
+  },
+  "value": "Saaf & Khaas",
+  "label": "Saaf & Khaas",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c31"
+  },
+  "value": "Bake Parlor Big",
+  "label": "Bake Parlor Big",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c32"
+  },
+  "value": "Baking Food Items",
+  "label": "Baking Food Items",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c33"
+  },
+  "value": "fauji",
+  "label": "fauji",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c34"
+  },
+  "value": "Dry Rose",
+  "label": "Dry Rose",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c35"
+  },
+  "value": "Boho Decor",
+  "label": "Boho Decor",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c36"
+  },
+  "value": "Flying Wooden",
+  "label": "Flying Wooden",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c37"
+  },
+  "value": "LED Lights",
+  "label": "LED Lights",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c38"
+  },
+  "value": "luxury palace",
+  "label": "luxury palace",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c1823184809103e754c39"
+  },
+  "value": "Golden",
+  "label": "Golden",
+  "checked": false
+}]

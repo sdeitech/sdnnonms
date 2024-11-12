@@ -1,0 +1,184 @@
+[{
+  "_id": {
+    "$oid": "667c18d8184809103e754c3c"
+  },
+  "value": "new-arrivals",
+  "label": "New Arrivals",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c3d"
+  },
+  "value": "sale",
+  "label": "Sale",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c3e"
+  },
+  "value": "travel",
+  "label": "Travel",
+  "checked": true
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c3f"
+  },
+  "value": "smartphones",
+  "label": "smartphones",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c40"
+  },
+  "value": "laptops",
+  "label": "laptops",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c41"
+  },
+  "value": "fragrances",
+  "label": "fragrances",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c42"
+  },
+  "value": "skincare",
+  "label": "skincare",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c43"
+  },
+  "value": "groceries",
+  "label": "groceries",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c44"
+  },
+  "value": "home-decoration",
+  "label": "home decoration",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c45"
+  },
+  "value": "furniture",
+  "label": "furniture",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c46"
+  },
+  "value": "tops",
+  "label": "tops",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c47"
+  },
+  "value": "womens-dresses",
+  "label": "womens dresses",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c48"
+  },
+  "value": "womens-shoes",
+  "label": "womens shoes",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c49"
+  },
+  "value": "mens-shirts",
+  "label": "mens shirts",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c4a"
+  },
+  "value": "mens-shoes",
+  "label": "mens shoes",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c4b"
+  },
+  "value": "mens-watches",
+  "label": "mens watches",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c4c"
+  },
+  "value": "womens-watches",
+  "label": "womens watches",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c4d"
+  },
+  "value": "womens-bags",
+  "label": "womens bags",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c4e"
+  },
+  "value": "womens-jewellery",
+  "label": "womens jewellery",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c4f"
+  },
+  "value": "sunglasses",
+  "label": "sunglasses",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c50"
+  },
+  "value": "automotive",
+  "label": "automotive",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c51"
+  },
+  "value": "motorcycle",
+  "label": "motorcycle",
+  "checked": false
+},
+{
+  "_id": {
+    "$oid": "667c18d8184809103e754c52"
+  },
+  "value": "lighting",
+  "label": "lighting",
+  "checked": false
+}]
